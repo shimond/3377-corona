@@ -1,0 +1,23 @@
+<div>
+    <div>
+      <input type="text"
+      [class.not-valid]="!isSearchEnabled()"
+      #txt (input)="searchWord = txt.value" (blur)="search()"/>
+      <button 
+      [disabled]="!isSearchEnabled()"
+      (click)="search()">Search</button>
+      <img 
+      [hidden]="!isBusy"
+      src="http://ajaxload.info/cache/52/5D/B6/00/00/00/1-1.gif"/>
+    </div>
+
+    <div>
+      <ul>
+          <li *ngFor="let item of result">
+            {{item}}
+          </li>
+      </ul>
+    </div>
+
+
+</div>
