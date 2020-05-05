@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { MoviesService, MoviesServiceMock } from './services/movies.service';
 
 @NgModule({
   bootstrap: [AppComponent],
-  declarations: [
+  declarations: [ // components, pipes, directives
     AppComponent,
     ListComponent,
     MovieListComponent,
@@ -14,7 +15,11 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
   imports: [
     BrowserModule,
   ],
-  providers: [],
-  exports: [MovieListComponent],
+  exports: [ListComponent],
+  // DI Management
+  providers: [
+    // MoviesService, // same as:
+   // { provide: MoviesService, useClass: MoviesServiceMock }
+  ]
 })
 export class AppModule { }

@@ -1,8 +1,9 @@
 <div>
-  <h1>All Movies : </h1>
+  <h1 [class.right]=""
+    [class.not-right]=""
+    [class.selected]="">All Movies : </h1>
   <h2 *ngIf="selectedMovie">{{selectedMovie.name}}</h2>
   <app-movie-list [movies]="allMovies"
-  [selectedMovie]="selectedMovie"
-  (selectMovieRequested)="onSelectMovieRequested($event)"
-  ></app-movie-list>
+    [selectedMovie]="selectedMovie"
+    (selectMovieRequested)="onSelectMovieRequested($event)"></app-movie-list>
 </div>
