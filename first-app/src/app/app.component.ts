@@ -1,38 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Movie } from './models/movie.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  searchWord = '';
-  result: string[] = [];
-  isBusy = false;
-  selectedItemFromAppComponent: string = null;
+export class AppComponent implements OnInit {
 
-  search() {
-    this.isBusy = true;
-    this.result = [];
-    this.selectedItemFromAppComponent = null;
-    setTimeout(() => {
-      for (let index = 1; index <= 10; index++) {
-        this.result.push(this.searchWord + ' ' + index);
-      }
-      this.selectedItemFromAppComponent = this.result[2];
-      this.isBusy = false;
-    }, 2000);
+  selectedMovie: Movie;
+  allMovies: Movie[] = [];
+
+  ngOnInit(): void {
+
+    this.allMovies.push({
+      id: 1, name: 'Aba Ganuv1',
+      description: 'Aba Ganuv1 Description bla bla bla bla',
+      imageUrl: '/assets/images/aba1.jpg',
+      length: 89
+    });
+
+    this.allMovies.push({
+      id: 2, name: 'Aba Ganuv2',
+      description: 'Aba Ganuv2 Description bla bla bla bla',
+      imageUrl: '/assets/images/aba2.jpg',
+      length: 102
+    });
+
+    this.allMovies.push({
+      id: 3, name: 'Aba Ganuv3',
+      description: 'Aba Ganuv3 Description bla bla bla bla',
+      imageUrl: '/assets/images/aba3.jpg',
+      length: 122
+    });
+
+    this.allMovies.push({
+      id: 4, name: 'Aba Ganuv4',
+      description: 'Aba Ganuv4 Description bla bla bla bla',
+      imageUrl: '/assets/images/aba4.jpg',
+      length: 68
+    });
+
   }
 
-  isSearchEnabled() {
-    return this.searchWord.length > 3;
-  }
-
-  onItemSelected(selectedItem: string) {
-    if (selectedItem.includes('1')) {
-      return;
-    }
-
-    this.selectedItemFromAppComponent = selectedItem;
+  onSelectMovieRequested(movie: Movie) {
+    this.selectedMovie = movie;
   }
 }

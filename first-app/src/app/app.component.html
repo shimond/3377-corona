@@ -1,41 +1,8 @@
 <div>
-  <div>
-    <input type="text"
-      [class.not-valid]="!isSearchEnabled()"
-      #txt
-      (input)="searchWord = txt.value"
-       />
-    <button [disabled]="!isSearchEnabled()"
-      (click)="search()">Search</button>
-    <img *ngIf="isBusy"
-      src="http://ajaxload.info/cache/52/5D/B6/00/00/00/1-1.gif" />
-    <!-- [hidden]="!isBusy" -->
-  </div>
-  <div>
-    <app-list
-    title="Search result" [list]="result" 
-    [selectedItem]="selectedItemFromAppComponent"
-    (itemSelectionRequested)="onItemSelected($event)"></app-list>
-  </div>
-
-
-  <h3 *ngIf="selectedItemFromAppComponent">Selected ITEM : {{selectedItemFromAppComponent}}</h3>
-
+  <h1>All Movies : </h1>
+  <h2 *ngIf="selectedMovie">{{selectedMovie.name}}</h2>
+  <app-movie-list [movies]="allMovies"
+  [selectedMovie]="selectedMovie"
+  (selectMovieRequested)="onSelectMovieRequested($event)"
+  ></app-movie-list>
 </div>
-
-
-<!--
-
-    []
-    ()
-    {{}}
-    *ngFor
-    *ngIf
-
-    ng g c [component name]
-    @Input()
-    @Output()
-    EventEmitter
-    $event
-
--->
