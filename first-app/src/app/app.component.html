@@ -1,4 +1,15 @@
 <div>
+  Date : {{currentDate | date:'dd/MM/yyyy'}}
+  <p appMark>
+    {{title  | test:'?':suffixRepeatCount | lowercase}}
+  </p>
+
+  <shimon-select  select-data="day-of-week">
+
+  </select>
+
+  <input type="text" tab-after="5"/>
+  
   <h1 [class.right]=""
     [class.not-right]=""
     [class.selected]="">All Movies : </h1>

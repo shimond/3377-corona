@@ -4,6 +4,8 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { MoviesService, MoviesServiceMock } from './services/movies.service';
+import { TestPipe } from './pipes/test.pipe';
+import { MarkDirective } from './directives/mark.directive';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -11,11 +13,13 @@ import { MoviesService, MoviesServiceMock } from './services/movies.service';
     AppComponent,
     ListComponent,
     MovieListComponent,
+    TestPipe,
+    MarkDirective,
   ],
   imports: [
     BrowserModule,
   ],
-  exports: [ListComponent],
+  exports: [ListComponent, TestPipe],
   // DI Management
   providers: [
     // MoviesService, // same as:

@@ -9,7 +9,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of movies"
+            <tr
+            appMark
+            *ngFor="let item of movies"
                 (click)="onMovieClicked(item)"
                 [class.selected-movie]="item === selectedMovie">
                 <td>

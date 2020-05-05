@@ -10,10 +10,16 @@ import { MoviesService } from './services/movies.service';
 })
 export class AppComponent implements OnInit {
 
+  suffixRepeatCount = 1;
+  title = 'ShImOn';
+  currentDate = new Date();
   selectedMovie: Movie;
   allMovies: Movie[] = [];
 
   ngOnInit(): void {
+    setInterval(() => {
+      this.suffixRepeatCount++;
+    }, 1000);
     this.allMovies = this.moviesService.getAllMovies();
   }
 
