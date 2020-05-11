@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CounterService } from './services/counter.service';
 import { map, filter, debounceTime, distinct } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
+import { ProductsService } from './services/products.service';
+import { Product } from './models/product.model';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +16,9 @@ export class AppComponent implements OnInit {
   counter = 0;
 
   searchKeyChangedSubject = new BehaviorSubject<string>('');
+  allProducts: Product[] = [];
 
-  constructor(private counterService: CounterService) {
+  constructor(private counterService: CounterService, private productsService: ProductsService) {
 
   }
 
@@ -24,6 +27,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.productsService.getAllProducts().subscribe(products => {
+      this.allProducts = products;
+    });
+
     this.searchKeyChangedSubject
       .pipe(
         filter(x => x.length > 3),
