@@ -6,6 +6,9 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
 import { MoviesService, MoviesServiceMock } from './services/movies.service';
 import { TestPipe } from './pipes/test.pipe';
 import { MarkDirective } from './directives/mark.directive';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+import { UsersModule } from './features/users/users.module';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -18,6 +21,9 @@ import { MarkDirective } from './directives/mark.directive';
   ],
   imports: [
     BrowserModule,
+    CoreModule,
+    UsersModule, // TODO: Change to Lazy loading 
+    SharedModule
   ],
   exports: [ListComponent, TestPipe],
   // DI Management
@@ -27,3 +33,7 @@ import { MarkDirective } from './directives/mark.directive';
   ]
 })
 export class AppModule { }
+
+
+// 1. imports infra module.
+// 2. We get only the exported components/pipes/ directives

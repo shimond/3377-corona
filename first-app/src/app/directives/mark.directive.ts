@@ -24,3 +24,23 @@ export class MarkDirective {
   }
 
 }
+
+
+// Module
+  // Infra
+      // Shared
+          // Components
+          // Directives
+          // Pipes
+      // Core
+        // Services
+  // Subjects, Lazy loading
+      // Feature modules
+
+// Component - new Html Tag
+// Directive - new Html Attribute - ngIf, ngClass, NgFor
+    // Input
+    // Output
+// Pipe - Custom binding behavior - transform
+// Service - logic
+

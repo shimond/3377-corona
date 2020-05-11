@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from './models/movie.model';
+// using...
 import { MoviesService } from './services/movies.service';
+import { AuthService } from './core/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +29,7 @@ export class AppComponent implements OnInit {
     this.selectedMovie = movie;
   }
 
-  constructor(private moviesService: MoviesService) {
+  constructor(private moviesService: MoviesService, auth: AuthService) {
+    console.log('Auth service', auth.login('', ''));
   }
 }
