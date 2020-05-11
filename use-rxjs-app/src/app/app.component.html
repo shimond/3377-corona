@@ -1,0 +1,14 @@
+<h1>My app - Current counter = {{counter}}</h1>
+
+<app-my-counter></app-my-counter>
+<button (click)="showMore()">Show more counters</button>
+<button (click)="hideMore()">Hide more counters</button>
+
+<div *ngIf="moreCounters">
+  <div>
+    <app-my-counter></app-my-counter>
+  </div>
+  <div>
+    <app-my-counter></app-my-counter>
+  </div>
+</div>
