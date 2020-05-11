@@ -1,3 +1,13 @@
 <button (click)="plus()">+</button>
-{{currentCount}}
+{{currentCount$ | async}}
 <button (click)="minus()">-</button>
+
+<!-- 
+
+    Async pipe:
+    1. auto subscribe
+    2. auto unsubscribe
+    3. best performance
+    4. works on observables & promise
+
+ -->

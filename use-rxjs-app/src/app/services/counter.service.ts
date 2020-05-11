@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, BehaviorSubject } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,10 @@ export class CounterService {
     // downgrade from subject to observable (export only subscribe)
     return this.counterChangedSubject.asObservable();
   }
+  get evenCounterOnly() {
+    return this.counterChangedSubject.pipe(filter(x => x % 2 === 0));
+  }
+  
   counter = 0;
 
   constructor() {

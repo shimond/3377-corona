@@ -1,43 +1,33 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CounterService } from 'src/app/services/counter.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-my-counter',
   templateUrl: './my-counter.component.html',
   styleUrls: ['./my-counter.component.scss']
 })
-export class MyCounterComponent implements OnInit, OnDestroy {
+export class MyCounterComponent implements OnInit {
 
-  currentCount = 0;
-  sub: Subscription;
-
+  currentCount$: Observable<number>;
   constructor(private counterService: CounterService) {
 
   }
 
   ngOnInit(): void {
     console.log('OnInit MyCounterComponent');
-    this.sub = this.counterService.counterChanged.subscribe(counter => {
-      this.currentCount = counter;
-      console.log('Value changed', counter);
-    });
-  }
-
-  ngOnDestroy() {
-    if (this.sub) {
-      this.sub.unsubscribe();
-    }
-    console.log('OnDestroy MyCounterComponent');
+    this.currentCount$ = this.counterService.counterChanged.pipe(
+      tap(x => console.log('Tap', x)),
+      map(x => x * 33)
+      );
   }
 
   plus() {
-    // this.currentCount++;
     this.counterService.plus();
   }
 
   minus() {
-    // this.currentCount--;
     this.counterService.minus();
   }
 }
