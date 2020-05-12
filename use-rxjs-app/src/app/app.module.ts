@@ -1,18 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-import { MyCounterComponent } from './components/my-counter/my-counter.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
+import { MoviesModule } from './features/movies/movies.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MyCounterComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    CoreModule,
+    SharedModule,
+    MoviesModule // todo: remove this reference.
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,25 @@
+{
+    "movies": [
+        {
+            "id": 2,
+            "name": "Aba Ganuv2",
+            "description": "Aba Ganuv2 Description bla bla bla bla",
+            "imageUrl": "/assets/images/aba2.jpg",
+            "length": 102
+        },
+        {
+            "id": 3,
+            "name": "Aba Ganuv3",
+            "description": "Aba Ganuv3 Description bla bla bla bla",
+            "imageUrl": "/assets/images/aba3.jpg",
+            "length": 122
+        },
+        {
+            "id": 4,
+            "name": "Aba Ganuv4",
+            "description": "Aba Ganuv4 description bla bla bla bla",
+            "imageUrl": "/assets/images/aba4.jpg",
+            "length": 68
+        }
+    ]
+}

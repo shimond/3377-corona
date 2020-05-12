@@ -1,22 +1,4 @@
-<h1>My app - Current counter = {{counter}}</h1>
+<app-search></app-search>
+<h1>My Web App</h1>
 
-<input type="text" #txt (input)="onInputChange(txt.value)"/>
-<br>
-<app-my-counter></app-my-counter>
-<button (click)="showMore()">Show more counters</button>
-<button (click)="hideMore()">Hide more counters</button>
-
-<div *ngIf="moreCounters">
-  <div>
-    <app-my-counter></app-my-counter>
-  </div>
-  <div>
-    <app-my-counter></app-my-counter>
-  </div>
-</div>
-
-
-
-<ul>
-  <li *ngFor="let p of allProducts">{{p.name}} - {{p.price}}</li>
-</ul>
+<app-movie-home></app-movie-home>
