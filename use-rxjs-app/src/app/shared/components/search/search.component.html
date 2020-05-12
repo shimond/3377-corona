@@ -1,1 +1,3 @@
-<input type="search" placeholder="search" #txt (input)="onInput(txt.value)">
+<input type="search"  placeholder="search"
+    [formControl]="searchControl"
+>

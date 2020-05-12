@@ -1,0 +1,46 @@
+<form [formGroup]="personForm" (ngSubmit)="onSave()">
+  <div>
+    <input type="text" formControlName="firstName">
+  </div>
+  <div>
+    <input type="text"  formControlName="lastName">
+  </div>
+  <div>
+    <input type="number"  formControlName="age">
+  </div>
+  <div>
+    <input type="text"  formControlName="email">
+  </div>
+  <div>
+     Is manager: <input type="checkbox"  formControlName="isManager">
+  </div>
+  <p>
+    <button [disabled]="personForm.invalid">Save</button>
+  </p>
+</form>
+
+
+
+
+
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Object value</th>
+      <th>Form Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <pre>{{personToEdit | json}}</pre>
+      </td>
+      <td>
+        <pre>{{personForm.value | json}}</pre>
+      </td>
+
+    </tr>
+  </tbody>
+</table>

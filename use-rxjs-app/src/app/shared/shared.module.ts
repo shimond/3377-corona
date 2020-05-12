@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './components/search/search.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 const exportsComponents = [
@@ -11,7 +12,9 @@ const exportsComponents = [
   declarations: [...exportsComponents],
   exports: [...exportsComponents],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SharedModule { }
