@@ -1,0 +1,32 @@
+<form [formGroup]="movieEditForm"
+    (ngSubmit)="onSubmit()">
+    <div>
+        Movie name : <input type="text"
+            formControlName="name">
+    </div>
+
+    <div>
+        <div>
+            Description:
+        </div>
+        <textarea formControlName="description"></textarea>
+    </div>
+
+    <div>
+        Movie Length : <input type="number"
+            formControlName="length">
+        <div>
+            {{movieEditForm.controls['length'].errors | json}}
+        </div>
+    </div>
+
+    <div>
+        Movie Image Url : <input type="text"
+            formControlName="imageUrl">
+    </div>
+    <div>
+        <button [disabled]="movieEditForm.invalid || movieEditForm.pristine">
+            {{OkButtonText}}
+        </button>
+    </div>
+</form>

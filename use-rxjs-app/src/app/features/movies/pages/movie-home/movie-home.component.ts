@@ -30,6 +30,12 @@ export class MovieHomeComponent implements OnInit {
     this.movieService.setSelectedMovie(m);
   }
 
+  async onSaveRequested(m: Movie) {
+    await this.movieService.updateMovie(m);
+    this.movieService.setSelectedMovie(null);
+    console.log('Saved !', m);
+  }
+
   async onDeleteMovie(m: Movie) {
     try {
       await this.movieService.deleteMovie(m);

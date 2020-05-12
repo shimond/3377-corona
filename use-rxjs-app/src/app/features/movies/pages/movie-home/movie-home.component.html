@@ -5,3 +5,9 @@
     (selectMovieRequested)="onsSelectMovieRequested($event)"
     [selectedMovie]="selectedMovie$ | async"
     (deleteMovieRequested)="onDeleteMovie($event)"></app-movie-list>
+
+<app-edit-movie *ngIf="selectedMovie$ | async as selectedMovie"
+    [movie]="selectedMovie"
+    (saveRequested)="onSaveRequested($event)"
+    OkButtonText="Save Movie"
+    ></app-edit-movie>
