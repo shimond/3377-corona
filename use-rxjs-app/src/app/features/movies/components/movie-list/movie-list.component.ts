@@ -11,11 +11,17 @@ export class MovieListComponent implements OnInit {
   @Input() movies: Movie[];
   @Input() selectedMovie: Movie;
   @Output() selectMovieRequested = new EventEmitter<Movie>();
+  @Output() deleteMovieRequested = new EventEmitter<Movie>();
 
   constructor() { }
 
   ngOnInit(): void {
 
+  }
+
+  onDeleteClicked(movie: Movie, e: MouseEvent) {
+    e.stopPropagation();
+    this.deleteMovieRequested.emit(movie);
   }
 
   onMovieClicked(movie: Movie) {

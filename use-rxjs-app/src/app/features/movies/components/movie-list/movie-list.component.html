@@ -1,7 +1,9 @@
 <div class="movie-list-container">
-    <table *ngIf="movies?.length" class="blueTable">
+    <table *ngIf="movies?.length"
+        class="blueTable">
         <thead>
             <tr>
+                <th>Actions</th>
                 <td>Pic</td>
                 <td>Name</td>
                 <td>Description</td>
@@ -13,13 +15,17 @@
                 (click)="onMovieClicked(item)"
                 [class.selected-movie]="item === selectedMovie">
                 <td>
-                    <img class="movie-pic" [src]="item.imageUrl" />
+                    <button (click)="onDeleteClicked(item, $event)">Delete {{item.name}}</button>
+                </td>
+                <td>
+                    <img class="movie-pic"
+                        [src]="item.imageUrl" />
                 </td>
                 <td>{{item.name}}</td>
                 <td>{{item.description}}</td>
                 <td>{{item.length}} min.</td>
-                
+
             </tr>
         </tbody>
     </table>
-</div> 
+</div>

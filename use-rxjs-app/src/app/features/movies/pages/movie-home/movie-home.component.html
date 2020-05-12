@@ -1,4 +1,7 @@
 <h1>Movies Home page</h1>
-<h3 *ngIf="isBusy">LOADING</h3>
-<h2>Best movies eveeeeeerrrrrr</h2>
-<app-movie-list [movies]="filteredMovies"></app-movie-list>
+<h2>Best movies:</h2>
+<h3 *ngIf="selectedMovie$ | async as selectedMovie">Selected Movie :{{ selectedMovie.name}} </h3>
+<app-movie-list [movies]="movies$ | async"
+    (selectMovieRequested)="onsSelectMovieRequested($event)"
+    [selectedMovie]="selectedMovie$ | async"
+    (deleteMovieRequested)="onDeleteMovie($event)"></app-movie-list>

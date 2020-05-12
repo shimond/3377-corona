@@ -10,7 +10,7 @@ export class SearchService {
 
 
   get searchKeyWord() {
-    return this.searchKeyWordSubject.asObservable();
+    return this.searchKeyWordSubject.pipe(debounceTime(300));
   }
 
   setSearchKeyWord(str: string) {

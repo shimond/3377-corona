@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { MovieHomeComponent } from './pages/movie-home/movie-home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MoviesService } from 'src/app/core/services/movies.service';
 
 
 
@@ -14,4 +15,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     SharedModule
   ]
 })
-export class MoviesModule { }
+export class MoviesModule {
+  constructor(private moviesService: MoviesService) {
+    this.moviesService.loadMovies();
+  }
+
+}
