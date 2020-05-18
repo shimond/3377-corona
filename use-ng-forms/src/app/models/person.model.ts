@@ -4,4 +4,8 @@ export interface Person {
     email: string;
     age: number;
     isManager: boolean;
+    signature?: string;
 }
+
+
+

@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignaturePadComponent } from './components/signature-pad/signature-pad.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignaturePadComponent
   ],
   imports: [
     BrowserModule,

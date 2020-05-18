@@ -1,21 +1,30 @@
-<form [formGroup]="personForm" (ngSubmit)="onSave()">
+<form [formGroup]="personForm"
+  (ngSubmit)="onSave()">
   <div>
-    <input type="text" formControlName="firstName">
+    <input type="text"
+      formControlName="firstName">
   </div>
   <div>
-    <input type="text"  formControlName="lastName">
+    <input type="text"
+      formControlName="lastName">
   </div>
   <div>
-    <input type="number"  formControlName="age">
+    <input type="number"
+      formControlName="age">
   </div>
   <div>
-    <input type="text"  formControlName="email">
+    <input type="text"
+      formControlName="email">
   </div>
   <div>
-     Is manager: <input type="checkbox"  formControlName="isManager">
+    <app-signature-pad formControlName="signature"></app-signature-pad>
+  </div>
+  <div>
+    Is manager: <input type="checkbox"
+      formControlName="isManager">
   </div>
   <p>
-    <button [disabled]="personForm.invalid">Save</button>
+    <button>Save</button>
   </p>
 </form>
 

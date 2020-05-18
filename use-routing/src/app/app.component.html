@@ -1,0 +1,26 @@
+<h2>My Web APP</h2>
+<div>
+    <a routerLink="/home"
+    routerLinkActive="active-link"
+    >Home</a> | <a routerLink="/about"
+    routerLinkActive="active-link"
+    >About</a>
+    | <a routerLink="/kefel"
+    routerLinkActive="active-link"
+    >Kefel</a> 
+    | <a routerLink="/result/1000/0.17"
+    routerLinkActive="active-link"
+    >1000 * 0.17</a>
+</div>
+<div>
+  <button (click)="navigateTo('/home')">Home</button>
+  <button (click)="navigateTo('/about')">About</button>
+
+</div>
+<div>
+  <marquee>טקסט מטייל על המסך</marquee>
+</div>
+<router-outlet></router-outlet>
+<footer>
+  &copy; JBH Course (Corona time)
+</footer>

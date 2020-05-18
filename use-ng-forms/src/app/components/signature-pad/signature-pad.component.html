@@ -1,0 +1,9 @@
+<div class="con">
+    <label>Sign here:</label>
+    <input [value]="value"
+        (input)="changeValue(txt.value)"
+        #txt>
+    <div>
+        {{value}}
+    </div>
+</div>

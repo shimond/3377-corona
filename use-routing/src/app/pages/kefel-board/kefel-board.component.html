@@ -1,0 +1,11 @@
+<div class="board">
+    <div 
+    class="kefel-item"
+    *ngFor="let item of values"
+    [routerLink]="['/result', item.x, item.y]"
+    
+    >
+            {{item.x}} * {{item.y}}
+
+        </div>
+</div>
