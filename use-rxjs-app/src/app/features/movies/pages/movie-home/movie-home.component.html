@@ -1,13 +1,10 @@
 <h1>Movies Home page</h1>
-<h2>Best movies:</h2>
-<h3 *ngIf="selectedMovie$ | async as selectedMovie">Selected Movie :{{ selectedMovie.name}} </h3>
-<app-movie-list [movies]="movies$ | async"
-    (selectMovieRequested)="onsSelectMovieRequested($event)"
-    [selectedMovie]="selectedMovie$ | async"
-    (deleteMovieRequested)="onDeleteMovie($event)"></app-movie-list>
+<div>
+    <a routerLink="best">Best movies</a>
+    <!-- <a href="">Best movies</a> | <a href="">Your movies</a> | <a href="">Movies Reports</a> -->
+ </div>
 
-<app-edit-movie *ngIf="selectedMovie$ | async as selectedMovie"
-    [movie]="selectedMovie"
-    (saveRequested)="onSaveRequested($event)"
-    OkButtonText="Save Movie"
-    ></app-edit-movie>
+ <router-outlet></router-outlet>
+ <div>
+     MOVIE HOME FOOTER
+ </div>

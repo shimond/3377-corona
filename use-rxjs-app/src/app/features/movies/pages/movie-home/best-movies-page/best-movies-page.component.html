@@ -1,0 +1,12 @@
+<h2>Best movies:</h2>
+<h3 *ngIf="selectedMovie$ | async as selectedMovie">Selected Movie :{{ selectedMovie.name}} </h3>
+<app-movie-list [movies]="movies$ | async"
+    (selectMovieRequested)="onsSelectMovieRequested($event)"
+    [selectedMovie]="selectedMovie$ | async"
+    (deleteMovieRequested)="onDeleteMovie($event)"></app-movie-list>
+
+<app-edit-movie *ngIf="selectedMovie$ | async as selectedMovie"
+    [movie]="selectedMovie"
+    (saveRequested)="onSaveRequested($event)"
+    OkButtonText="Save Movie"
+    ></app-edit-movie>

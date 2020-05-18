@@ -11,37 +11,7 @@ import { filter, map, switchMap } from 'rxjs/operators';
   styleUrls: ['./movie-home.component.scss']
 })
 export class MovieHomeComponent implements OnInit {
-  movies$: Observable<Movie[]>;
-  selectedMovie$: Observable<Movie>;
-
-  constructor(private movieService: MoviesService, private searchService: SearchService) { }
-
-  ngOnInit() {
-    this.selectedMovie$ = this.movieService.selectedMovie;
-    this.movies$ = this.searchService.searchKeyWord.pipe(
-      switchMap(keyword =>
-        this.movieService.currentMovieList.pipe(map(movies =>
-          movies.filter(o => o.name.includes(keyword))))
-      )
-    );
-  }
-
-  onsSelectMovieRequested(m: Movie) {
-    this.movieService.setSelectedMovie(m);
-  }
-
-  async onSaveRequested(m: Movie) {
-    await this.movieService.updateMovie(m);
-    this.movieService.setSelectedMovie(null);
-    console.log('Saved !', m);
-  }
-
-  async onDeleteMovie(m: Movie) {
-    try {
-      await this.movieService.deleteMovie(m);
-    } catch (errors) {
-      alert('Failed to delete movie ' + m.name);
-    }
+  ngOnInit(): void {
   }
 
 }

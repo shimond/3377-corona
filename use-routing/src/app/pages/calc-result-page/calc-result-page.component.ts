@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { FormControl } from '@angular/forms';
+import { Observable, combineLatest } from 'rxjs';
+import { map, distinctUntilChanged, debounceTime, startWith, filter } from 'rxjs/operators';
 @Component({
   selector: 'app-calc-result-page',
   templateUrl: './calc-result-page.component.html',
@@ -8,23 +10,29 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CalcResultPageComponent implements OnInit, OnDestroy {
 
-  result = 0;
+  result$: Observable<number>;
 
   constructor(private activatedRoute: ActivatedRoute) {
+
   }
 
   ngOnInit(): void {
-    console.log('CalcResultPageComponent INIT');
-    // this.x = +this.activatedRoute.snapshot.params.xParam;
-    // this.y = +this.activatedRoute.snapshot.params.yParam;
-    // this.result = this.x * this.y;
 
-    this.activatedRoute.params.subscribe(urlParams => {
-      this.result = +urlParams.xParam * +urlParams.uParam;
-    });
+    this.result$ = combineLatest([
+      this.activatedRoute.queryParams.pipe(
+        startWith({ op: '*' }),
+        map(x => x.op),
+        filter(x => x)
+      ),
+      this.activatedRoute.params])
+      .pipe(map(([op, urlParams]) => {
+        return +eval(urlParams.xParam + op + urlParams.yParam);
+      }),
+        distinctUntilChanged(),
+        debounceTime(1000));
   }
   ngOnDestroy() {
-    console.log('CalcResultPageComponent DESTROY');
+
   }
 
 }

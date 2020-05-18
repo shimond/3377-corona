@@ -1,16 +1,16 @@
 <h2>My Web APP</h2>
 <div>
-    <a routerLink="/home"
-    routerLinkActive="active-link"
-    >Home</a> | <a routerLink="/about"
-    routerLinkActive="active-link"
-    >About</a>
-    | <a routerLink="/kefel"
-    routerLinkActive="active-link"
-    >Kefel</a> 
-    | <a routerLink="/result/1000/0.17"
-    routerLinkActive="active-link"
-    >1000 * 0.17</a>
+  <a routerLink="/home"
+    routerLinkActive="active-link">Home</a> | <a routerLink="/about"
+    routerLinkActive="active-link">About</a>
+  | <a routerLink="/kefel"
+    routerLinkActive="active-link">Kefel</a>
+  | <a routerLink="/result/1000/0.17" [queryParams]="{op:'*'}"
+    routerLinkActive="active-link">1000 * 0.17</a>
+  | <a routerLink="/result/1000/0.17" [queryParams]="{op:'+'}"
+    routerLinkActive="active-link">1000 + 0.17</a>
+  | <a routerLink="/result/10/20" [queryParams]="{op:'+'}"
+    routerLinkActive="active-link">10 + 20</a>
 </div>
 <div>
   <button (click)="navigateTo('/home')">Home</button>

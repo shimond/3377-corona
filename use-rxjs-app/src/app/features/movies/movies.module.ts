@@ -6,17 +6,20 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MoviesService } from 'src/app/core/services/movies.service';
 import { EditMovieComponent } from './components/edit-movie/edit-movie.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { MOVIES_ROUTES } from './movies.module.routing';
+import { BestMoviesPageComponent } from './pages/movie-home/best-movies-page/best-movies-page.component';
 
 
 
 @NgModule({
-  declarations: [MovieListComponent, MovieHomeComponent, EditMovieComponent],
-  exports: [MovieHomeComponent],
+  declarations: [MovieListComponent, MovieHomeComponent, EditMovieComponent, BestMoviesPageComponent],
   imports: [
     CommonModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forChild(MOVIES_ROUTES)
   ]
 })
 export class MoviesModule {
